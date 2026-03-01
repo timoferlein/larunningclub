@@ -152,7 +152,7 @@
     /* ── Cards ── */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 2px;
     }
     .card {
@@ -341,8 +341,8 @@
       .section-intro { margin-bottom: 36px; }
       .form-section { padding: 52px 0 72px; }
 
-      /* Cards – force single column below 480px */
-      .cards { grid-template-columns: 1fr; gap: 2px; }
+      /* Cards – single column on mobile */
+      .cards { grid-template-columns: 1fr; }
 
       /* Vibe grid – stats above list on mobile */
       .vibe-grid {
@@ -442,7 +442,7 @@
           <p class="vibe-stat-label">Eintritt</p>
         </div>
         <div class="vibe-stat-block">
-          <div class="vibe-stat">∞</div>
+          <div class="vibe-stat">0</div>
           <p class="vibe-stat-label">Pace-Vorgaben</p>
         </div>
       </div>
