@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LA Running Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --nacht:      #0D1117;
+      --daemmerung: #1E2A3A;
+      --morgenroete:#E8633A;
+      --goldstunde: #F2A55A;
+      --bodensee:   #7BAFD4;
+      --nebel:      #E8E4DC;
+      --sand:       #C9C0B0;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--nacht);
+      color: var(--nebel);
+      line-height: 1.6;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-weight: 900;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--nebel);
+    }
+    .logo span { color: var(--morgenroete); }
+    nav a {
+      color: var(--sand);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--nebel); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 100px 0 80px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--morgenroete);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--nebel);
+      max-width: 14ch;
+      margin-bottom: 28px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--morgenroete);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--sand);
+      max-width: 48ch;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn-primary {
+      background: var(--morgenroete);
+      color: #fff;
+      padding: 14px 28px;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover {
+      background: #d45530;
+      transform: translateY(-1px);
+    }
+    .hero-meta {
+      font-size: 0.85rem;
+      color: var(--sand);
+    }
+    .hero-meta strong { color: var(--nebel); }
+
+    /* ── Was erwartet dich ── */
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--morgenroete);
+      margin-bottom: 14px;
+    }
+    .section h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 900;
+      color: var(--nebel);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.015em;
+    }
+    .section-intro {
+      color: var(--sand);
+      font-size: 1rem;
+      max-width: 52ch;
+      margin-bottom: 56px;
+      line-height: 1.7;
+    }
+
+    /* ── Cards ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2px;
+    }
+    .card {
+      background: var(--daemmerung);
+      padding: 32px 28px;
+    }
+    .card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--nebel);
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: var(--sand);
+      line-height: 1.65;
+    }
+
+    /* ── Über uns / Vibe ── */
+    .vibe-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .vibe-grid { grid-template-columns: 1fr; }
+    }
+    .vibe-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .vibe-list li {
+      padding-left: 20px;
+      border-left: 2px solid var(--morgenroete);
+      font-size: 0.95rem;
+      color: var(--sand);
+      line-height: 1.6;
+    }
+    .vibe-list li strong { color: var(--nebel); display: block; margin-bottom: 2px; }
+    .vibe-stat {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 900;
+      color: var(--morgenroete);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .vibe-stat-label {
+      font-size: 0.85rem;
+      color: var(--sand);
+      margin-bottom: 32px;
+    }
+
+    /* ── Formular ── */
+    .form-section {
+      padding: 80px 0 100px;
+    }
+    .form-wrap {
+      max-width: 520px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 8px;
+    }
+    input, select {
+      width: 100%;
+      background: var(--daemmerung);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--nebel);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem; /* min 16px verhindert Auto-Zoom auf iOS */
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 0; /* verhindert iOS-Rundungen */
+    }
+    input:focus, select:focus {
+      border-color: var(--morgenroete);
+    }
+    input::placeholder { color: var(--sand); opacity: 0.5; }
+    .form-hint {
+      font-size: 0.8rem;
+      color: var(--sand);
+      margin-top: 20px;
+      opacity: 0.6;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer p {
+      font-size: 0.8rem;
+      color: var(--sand);
+      opacity: 0.5;
+    }
+
+    /* ── Divider line ── */
+    .horizon {
+      width: 48px;
+      height: 2px;
+      background: var(--morgenroete);
+      margin-bottom: 40px;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      .container { padding: 0 20px; }
+
+      /* Nav */
+      nav { padding: 18px 0; }
+      nav a { font-size: 0.8rem; }
+
+      /* Hero */
+      .hero { padding: 56px 0 52px; }
+      .hero p { font-size: 1rem; margin-bottom: 32px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .hero-actions .btn-primary { width: 100%; text-align: center; padding: 16px 28px; }
+      .hero-meta { font-size: 0.8rem; }
+
+      /* Sections */
+      .section { padding: 52px 0; }
+      .section-intro { margin-bottom: 36px; }
+      .form-section { padding: 52px 0 72px; }
+
+      /* Cards – force single column below 480px */
+      .cards { grid-template-columns: 1fr; gap: 2px; }
+
+      /* Vibe grid – stats above list on mobile */
+      .vibe-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .vibe-grid > div:last-child { order: -1; }
+      .vibe-stats-row {
+        display: flex;
+        gap: 0;
+      }
+      .vibe-stat-block { flex: 1; }
+      .vibe-stat { font-size: clamp(2rem, 10vw, 3.5rem); }
+      .vibe-stat-label { font-size: 0.75rem; margin-bottom: 0; }
+
+      /* Form */
+      .form-wrap { max-width: 100%; }
+      .btn-primary { width: 100%; text-align: center; }
+    }
+
+    @media (min-width: 601px) {
+      .vibe-stats-row { display: contents; }
+      .vibe-stat-block { display: contents; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <span class="logo">LA <span>Running</span> Club</span>
+      <a href="#anmelden">Interesse melden →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Langenargen · Bodensee · Umland</p>
+      <h1>Laufen.<br/>Bodensee.<br/><em>Gute Leute.</em></h1>
+      <p>
+        Ein Laufclub für Langenargen und Umland. Keine Vereinsstruktur,
+        kein Leistungsdruck – nur gute Strecken, besondere Momente
+        und Menschen, die gerne draußen sind.
+      </p>
+      <div class="hero-actions">
+        <a href="#anmelden" class="btn-primary">Ich bin dabei</a>
+        <span class="hero-meta">Alle 2 Wochen · <strong>Kostenlos</strong> · Offen für alle</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Was erwartet dich -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Was dich erwartet</p>
+      <h2>Kein normaler Dienstagslauf.</h2>
+      <p class="section-intro">
+        Jede Session ist eine eigene Sache – kuratierte Routen, besondere Uhrzeiten,
+        manchmal ein Thema. Der Club entwickelt seinen Charakter durch die Leute, die kommen.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <span class="card-icon">🌅</span>
+          <h3>Sunrise Runs</h3>
+          <p>Früh aufstehen lohnt sich. Morgendliche Läufe am See, wenn noch niemand wach ist.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🌙</span>
+          <h3>Nachtläufe</h3>
+          <p>Kopflampen, Stille, eine Strecke die sich nachts komplett anders anfühlt.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">📍</span>
+          <h3>Besondere Routen</h3>
+          <p>Wege am Bodensee, durch den Schussental, abseits der üblichen Pfade.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">👥</span>
+          <h3>Echte Community</h3>
+          <p>Jeder ist willkommen. Keine Pace-Vorgaben, kein Ausschluss. Gemeinsam eine gute Zeit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Über den Club -->
+  <section class="section">
+    <div class="container">
+      <div class="vibe-grid">
+        <div>
+          <p class="section-label">Der Club</p>
+          <h2>Einfach. Lokal. Echt.</h2>
+          <div class="horizon"></div>
+          <ul class="vibe-list">
+            <li>
+              <strong>Offen für alle</strong>
+              Egal ob Anfänger oder ambitionierter Hobbyläufer – wer kommt, ist dabei.
+            </li>
+            <li>
+              <strong>Alle zwei Wochen</strong>
+              Regelmäßig, aber ohne Stress. Ein Rhythmus, der sich einplanen lässt.
+            </li>
+            <li>
+              <strong>Kein Vereinskram</strong>
+              Kein Mitgliedsbeitrag, kein Antrag, keine Pflichten. Man kommt einfach.
+            </li>
+            <li>
+              <strong>Langenargen und Umland</strong>
+              Die Landschaft hier ist Teil des Erlebnisses – kein generischer Club, der überall stehen könnte.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="vibe-stats-row">
+            <div class="vibe-stat-block">
+              <div class="vibe-stat">2×</div>
+              <p class="vibe-stat-label">im Monat · alle 2 Wochen</p>
+            </div>
+            <div class="vibe-stat-block">
+              <div class="vibe-stat">0€</div>
+              <p class="vibe-stat-label">Eintritt · immer kostenlos</p>
+            </div>
+            <div class="vibe-stat-block">
+              <div class="vibe-stat">∞</div>
+              <p class="vibe-stat-label">Pace-Vorgaben · keine</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formular -->
+  <section class="form-section" id="anmelden">
+    <div class="container">
+      <p class="section-label">Interesse melden</p>
+      <h2>Dabei sein.</h2>
+      <p class="section-intro">
+        Wir starten bald. Trag dich ein und wir melden uns,
+        sobald die erste Session feststeht.
+      </p>
+      <div class="form-wrap">
+        <form name="interesse" method="POST" data-netlify="true" action="/danke">
+          <input type="hidden" name="form-name" value="interesse" />
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Wie heißt du?" required />
+          </div>
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" placeholder="deine@mail.de" required />
+          </div>
+          <div class="form-group">
+            <label for="level">Ich laufe...</label>
+            <select id="level" name="level">
+              <option value="" disabled selected>— auswählen</option>
+              <option value="einsteiger">Gelegentlich, ich bin Einsteiger</option>
+              <option value="hobby">Regelmäßig als Hobby</option>
+              <option value="ambitioniert">Ambitioniert, mit Trainingsplan</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary" style="margin-top: 8px;">Eintragen</button>
+          <p class="form-hint">Keine Verpflichtung. Kein Newsletter-Spam. Nur eine kurze Info wenn es losgeht.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Danke-Seite (wird nach Formular-Submit angezeigt) -->
+  <!-- Netlify leitet auf /danke weiter – dafür brauchen wir eine danke.html -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>LA Running Club · Langenargen</p>
+    </div>
+  </footer>
+
+</body>
+</html>

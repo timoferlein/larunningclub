@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danke – LA Running Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --nacht:      #0D1117;
+      --morgenroete:#E8633A;
+      --nebel:      #E8E4DC;
+      --sand:       #C9C0B0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--nacht);
+      color: var(--nebel);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .wrap { max-width: 480px; text-align: center; }
+    .icon { font-size: 2.5rem; margin-bottom: 24px; }
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    h1 span { color: var(--morgenroete); }
+    p {
+      color: var(--sand);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    a {
+      color: var(--morgenroete);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="icon">🏃</div>
+    <h1>Bis <span>bald.</span></h1>
+    <p>Du bist dabei. Wir melden uns sobald die erste Session feststeht – bis dahin einfach die Laufschuhe bereithalten.</p>
+    <a href="/">← Zurück zur Startseite</a>
+  </div>
+</body>
+</html>
