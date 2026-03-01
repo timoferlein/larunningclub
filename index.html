@@ -274,6 +274,45 @@
       opacity: 0.5;
     }
 
+    /* ── Gründer ── */
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .founder-text p {
+      color: var(--sand);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .founder-text p:last-child { margin-bottom: 0; }
+    .founder-image img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(20%);
+    }
+    .founder-image-placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background: var(--daemmerung);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sand);
+      font-size: 0.85rem;
+    }
+    @media (max-width: 600px) {
+      .founder-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .founder-image { order: -1; }
+    }
+
     /* ── Divider line ── */
     .horizon {
       width: 48px;
@@ -325,8 +364,8 @@
     }
 
     @media (min-width: 601px) {
-      .vibe-stats-row { display: contents; }
-      .vibe-stat-block { display: contents; }
+      .vibe-stats-row { display: flex; gap: 0; }
+      .vibe-stat-block { flex: 1; }
     }
   </style>
 </head>
@@ -336,23 +375,22 @@
   <nav>
     <div class="container">
       <span class="logo">LA <span>Running</span> Club</span>
-      <a href="#anmelden">Interesse melden →</a>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <p class="hero-eyebrow">Langenargen · Bodensee · Umland</p>
-      <h1>Laufen.<br/>Bodensee.<br/><em>Gute Leute.</em></h1>
+      <p class="hero-eyebrow">Langenargen läuft</p>
+      <h1>Laufen.<br/>Bodensee.<br/><em>Gemeinsam.</em></h1>
       <p>
-        Ein Laufclub für Langenargen und Umland. Keine Vereinsstruktur,
-        kein Leistungsdruck – nur gute Strecken, besondere Momente
-        und Menschen, die gerne draußen sind.
+        Ein Laufclub für Langenargen und Umgebung. Hier geht's um den Sport und die Gemeinschaft:
+        Kein Leistungsdruck, keine Vereinsstrukturen. Nur schöne Strecken,
+        positive Vibes und Menschen, die gerne draußen sind.
       </p>
       <div class="hero-actions">
-        <a href="#anmelden" class="btn-primary">Ich bin dabei</a>
-        <span class="hero-meta">Alle 2 Wochen · <strong>Kostenlos</strong> · Offen für alle</span>
+        <a href="#anmelden" class="btn-primary">Haltet mich auf dem Laufenden</a>
+        <span class="hero-meta">Alle 2 Wochen · Kostenlos · Offen für alle</span>
       </div>
     </div>
   </section>
@@ -361,78 +399,68 @@
   <section class="section">
     <div class="container">
       <p class="section-label">Was dich erwartet</p>
-      <h2>Kein normaler Dienstagslauf.</h2>
+      <h2>Draußen sein. Zusammen laufen. Wiederkommen.</h2>
       <p class="section-intro">
-        Jede Session ist eine eigene Sache – kuratierte Routen, besondere Uhrzeiten,
-        manchmal ein Thema. Der Club entwickelt seinen Charakter durch die Leute, die kommen.
+        Wir laufen zusammen durch die Region, die wir kennen und mögen. Jede Session hat ihren eigenen Charakter –
+        geformt durch die Strecke, das Licht und die Leute, die kommen.
       </p>
       <div class="cards">
         <div class="card">
-          <span class="card-icon">🌅</span>
-          <h3>Sunrise Runs</h3>
-          <p>Früh aufstehen lohnt sich. Morgendliche Läufe am See, wenn noch niemand wach ist.</p>
-        </div>
-        <div class="card">
-          <span class="card-icon">🌙</span>
-          <h3>Nachtläufe</h3>
-          <p>Kopflampen, Stille, eine Strecke die sich nachts komplett anders anfühlt.</p>
-        </div>
-        <div class="card">
-          <span class="card-icon">📍</span>
-          <h3>Besondere Routen</h3>
-          <p>Wege am Bodensee, durch den Schussental, abseits der üblichen Pfade.</p>
+          <span class="card-icon">👟</span>
+          <h3>Offen für alle</h3>
+          <p>Egal ob du gerade anfängst oder schon Jahre läufst, hier gibt's keine Pace-Hierarchie. Wer kommt, gehört dazu. Die einzige Regel: Good Vibes only.</p>
         </div>
         <div class="card">
           <span class="card-icon">👥</span>
-          <h3>Echte Community</h3>
-          <p>Jeder ist willkommen. Keine Pace-Vorgaben, kein Ausschluss. Gemeinsam eine gute Zeit.</p>
+          <h3>Echte Gemeinschaft</h3>
+          <p>Du kommst, wann es dir passt. Keine Mitgliedschaft, keine Pflichten. Ideen für Strecken oder Formate sind immer willkommen.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">📍</span>
+          <h3>Unsere Region</h3>
+          <p>Langenargen, Eriskirch, Kressbronn. Wir laufen durch die Landschaft, die wir kennen. Jede Strecke hat ihren eigenen Charakter.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🌅</span>
+          <h3>Besondere Sessions</h3>
+          <p>Ab und zu machen wir etwas Besonderes. Ein Sunrise Run, ein Nachtlauf, eine neue Route. Was als nächstes kommt, wird gemeinsam beschlossen und rechtzeitig angekündigt.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Über den Club -->
+  <!-- Zahlen -->
   <section class="section">
     <div class="container">
-      <div class="vibe-grid">
-        <div>
-          <p class="section-label">Der Club</p>
-          <h2>Einfach. Lokal. Echt.</h2>
-          <div class="horizon"></div>
-          <ul class="vibe-list">
-            <li>
-              <strong>Offen für alle</strong>
-              Egal ob Anfänger oder ambitionierter Hobbyläufer – wer kommt, ist dabei.
-            </li>
-            <li>
-              <strong>Alle zwei Wochen</strong>
-              Regelmäßig, aber ohne Stress. Ein Rhythmus, der sich einplanen lässt.
-            </li>
-            <li>
-              <strong>Kein Vereinskram</strong>
-              Kein Mitgliedsbeitrag, kein Antrag, keine Pflichten. Man kommt einfach.
-            </li>
-            <li>
-              <strong>Langenargen und Umland</strong>
-              Die Landschaft hier ist Teil des Erlebnisses – kein generischer Club, der überall stehen könnte.
-            </li>
-          </ul>
+      <div class="vibe-stats-row">
+        <div class="vibe-stat-block">
+          <div class="vibe-stat">2×</div>
+          <p class="vibe-stat-label">im Monat</p>
         </div>
-        <div>
-          <div class="vibe-stats-row">
-            <div class="vibe-stat-block">
-              <div class="vibe-stat">2×</div>
-              <p class="vibe-stat-label">im Monat · alle 2 Wochen</p>
-            </div>
-            <div class="vibe-stat-block">
-              <div class="vibe-stat">0€</div>
-              <p class="vibe-stat-label">Eintritt · immer kostenlos</p>
-            </div>
-            <div class="vibe-stat-block">
-              <div class="vibe-stat">∞</div>
-              <p class="vibe-stat-label">Pace-Vorgaben · keine</p>
-            </div>
-          </div>
+        <div class="vibe-stat-block">
+          <div class="vibe-stat">0€</div>
+          <p class="vibe-stat-label">Eintritt</p>
+        </div>
+        <div class="vibe-stat-block">
+          <div class="vibe-stat">∞</div>
+          <p class="vibe-stat-label">Pace-Vorgaben</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gründer -->
+  <section class="section">
+    <div class="container">
+      <div class="founder-grid">
+        <div class="founder-text">
+          <p class="section-label">Dahinter steckt</p>
+          <h2>Hi, ich bin Timo.</h2>
+          <p>26 Jahre alt, wohnhaft in Langenargen. Ausdauersport ist mein Ding.</p>
+          <p>Den LA Running Club habe ich gegründet, weil ich überzeugt bin: Gesundheit ist unser wertvollstes Gut. Und sport mit tollen Menschen macht das nochmal so gut. Also warum nicht beides zusammenbringen?</p>
+        </div>
+        <div class="founder-image">
+          <img src="timo.jpeg" alt="Timo, Gründer LA Running Club" />
         </div>
       </div>
     </div>
@@ -441,30 +469,36 @@
   <!-- Formular -->
   <section class="form-section" id="anmelden">
     <div class="container">
-      <p class="section-label">Interesse melden</p>
+      <p class="section-label">Mach mit</p>
       <h2>Dabei sein.</h2>
       <p class="section-intro">
-        Wir starten bald. Trag dich ein und wir melden uns,
-        sobald die erste Session feststeht.
+        Sobald mindestens 7 Leute zusammenkommen, erstellen wir eine WhatsApp-Gruppe
+        und stimmen gemeinsam das Datum für den ersten Lauf ab.
       </p>
       <div class="form-wrap">
         <form name="interesse" method="POST" data-netlify="true" action="/danke">
           <input type="hidden" name="form-name" value="interesse" />
           <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Vorname</label>
             <input type="text" id="name" name="name" placeholder="Wie heißt du?" required />
+          </div>
+          <div class="form-group">
+            <label for="telefon">Telefonnummer</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="Für die WhatsApp-Gruppe" required />
           </div>
           <div class="form-group">
             <label for="email">E-Mail</label>
             <input type="email" id="email" name="email" placeholder="deine@mail.de" required />
           </div>
           <div class="form-group">
-            <label for="level">Ich laufe...</label>
-            <select id="level" name="level">
+            <label for="pace">Meine Geschwindigkeit, bei der ich mich noch gut unterhalten kann</label>
+            <select id="pace" name="pace">
               <option value="" disabled selected>— auswählen</option>
-              <option value="einsteiger">Gelegentlich, ich bin Einsteiger</option>
-              <option value="hobby">Regelmäßig als Hobby</option>
-              <option value="ambitioniert">Ambitioniert, mit Trainingsplan</option>
+              <option value="unter-530">Unter 5:30 min/km</option>
+              <option value="530-600">5:30 – 6:00 min/km</option>
+              <option value="600-630">6:00 – 6:30 min/km</option>
+              <option value="630-730">6:30 – 7:30 min/km</option>
+              <option value="730-plus">7:30 min/km oder mehr</option>
             </select>
           </div>
           <button type="submit" class="btn-primary" style="margin-top: 8px;">Eintragen</button>
@@ -481,6 +515,7 @@
   <footer>
     <div class="container">
       <p>LA Running Club · Langenargen</p>
+      <p><a href="/impressum" style="color: var(--sand); opacity: 0.5; text-decoration: none; font-size: 0.8rem;">Impressum</a></p>
     </div>
   </footer>
 
